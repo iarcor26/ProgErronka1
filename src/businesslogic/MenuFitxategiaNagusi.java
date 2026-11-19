@@ -7,7 +7,7 @@ import ikuspegia.Kontsola;
 
 public class MenuFitxategiaNagusi {
 
-	private final String FITXATEGIA_BIDEA = "./src/businesslogic/langileak.txt";
+	private final String FITXATEGIA_BIDEA = "businesslogic/langileak.txt";
 
 	public void bilatuTeklatuz() {
 
@@ -34,7 +34,7 @@ public class MenuFitxategiaNagusi {
 
 		List<Langileak> zerrenda = new ArrayList<>();
 
-		try (FileReader fr = new FileReader(FITXATEGIA_BIDEA); BufferedReader br = new BufferedReader(fr)) {
+		try (StringReader fr = new StringReader(Irakurri.irakurriJAR(FITXATEGIA_BIDEA)); BufferedReader br = new BufferedReader(fr)) {
 			String lerroa;
 			br.readLine();
 

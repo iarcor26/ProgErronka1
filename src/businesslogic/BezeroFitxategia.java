@@ -7,7 +7,7 @@ import ikuspegia.Kontsola;
 
 public class BezeroFitxategia {
 
-	private final String FITXATEGIAKO_BIDEA = "./src/businesslogic/bezeroak.txt";
+	private final String FITXATEGIAKO_BIDEA = "businesslogic/bezeroak.txt";
 
 	public void bilatuTeklatuz() {
 		bilatu();
@@ -30,7 +30,7 @@ public class BezeroFitxategia {
 
 	private List<Bezeroak> bezeroakIrakurri() {
 		List<Bezeroak> zerrenda = new ArrayList<>();
-		try (FileReader irakurriFitxategiBezeroak = new FileReader(FITXATEGIAKO_BIDEA);
+		try (StringReader irakurriFitxategiBezeroak = new StringReader(Irakurri.irakurriJAR(FITXATEGIAKO_BIDEA));
 				BufferedReader zatiHandietanIrakurri = new BufferedReader(irakurriFitxategiBezeroak)) {
 			String lerroa;
 			zatiHandietanIrakurri.readLine();

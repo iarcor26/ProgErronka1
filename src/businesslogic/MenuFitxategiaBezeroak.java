@@ -7,8 +7,8 @@ import ikuspegia.Kontsola;
 import eredua.Bezeroak;
 
 public class MenuFitxategiaBezeroak {
-	private final String FITXATEGIAKO_BIDEA = "./src/businesslogic/bezeroak.txt";
-	private final String FITXATEGIAKO_BIDEA2 = "./src/businesslogic/BEZERO_TELEFONOAK.txt";
+	private final String FITXATEGIAKO_BIDEA = "businesslogic/bezeroak.txt";
+	private final String FITXATEGIAKO_BIDEA2 = "businesslogic/BEZERO_TELEFONOAK.txt";
 
 	private String telefonoa;
 	private String bilatzekoBalioaIzena;
@@ -65,7 +65,7 @@ public class MenuFitxategiaBezeroak {
 
 		List<Bezeroak> zerrenda = new ArrayList<>();
 
-		try (FileReader irakurriFitxategiaBezeroak = new FileReader(FITXATEGIAKO_BIDEA);
+		try (StringReader irakurriFitxategiaBezeroak = new StringReader(Irakurri.irakurriJAR(FITXATEGIAKO_BIDEA));
 				BufferedReader zatiHandiakIrakurri = new BufferedReader(irakurriFitxategiaBezeroak)) {
 			String lerroa;
 			zatiHandiakIrakurri.readLine();
@@ -88,7 +88,7 @@ public class MenuFitxategiaBezeroak {
 
 		Map<String, String> telefonoMapa = new HashMap<String, String>();
 
-		try (FileReader irakurriFitxategiaBezeroak = new FileReader(FITXATEGIAKO_BIDEA2);
+		try (StringReader irakurriFitxategiaBezeroak = new StringReader(Irakurri.irakurriJAR(FITXATEGIAKO_BIDEA2));
 				BufferedReader zatiHandiakIrakurri = new BufferedReader(irakurriFitxategiaBezeroak)) {
 			String lerroa;
 			zatiHandiakIrakurri.readLine();

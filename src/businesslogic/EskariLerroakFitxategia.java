@@ -1,7 +1,7 @@
 package businesslogic;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.StringReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import ikuspegia.Kontsola;
 
 public class EskariLerroakFitxategia {
 
-	private final String FITXATEGIAKO_BIDEA = "./src/businesslogic/ESKARI_LERROAK.txt";
+	private final String FITXATEGIAKO_BIDEA = "businesslogic/ESKARI_LERROAK.txt";
 
 	public void bilatuTeklatuz() {
 		bilatu();
@@ -35,7 +35,7 @@ public class EskariLerroakFitxategia {
 
 	private List<EskariLerroa> eskariLerroIrakurri() {
 		List<EskariLerroa> zerrenda = new ArrayList<>();
-		try (FileReader irakurriFitxategiaEskariLerroa = new FileReader(FITXATEGIAKO_BIDEA);
+		try (StringReader irakurriFitxategiaEskariLerroa = new StringReader(Irakurri.irakurriJAR(FITXATEGIAKO_BIDEA));
 				BufferedReader zatiHandiakIrakurri = new BufferedReader(irakurriFitxategiaEskariLerroa)) {
 			String lerroa;
 			while ((lerroa = zatiHandiakIrakurri.readLine()) != null) {

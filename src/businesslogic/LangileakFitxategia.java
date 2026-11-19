@@ -7,7 +7,7 @@ import ikuspegia.Kontsola;
 
 public class LangileakFitxategia {
 
-	private final String FITXATEGIA_BIDEA = "./src/businesslogic/langileak.txt";
+	private final String FITXATEGIA_BIDEA = "businesslogic/langileak.txt";
 	private String bilatzekoBalioaIzena;
 	private String bilatzekoBalioaId;
 	private String bilatzekoBalioaAbizena;
@@ -61,7 +61,7 @@ public class LangileakFitxategia {
 
 		List<Langileak> zerrenda = new ArrayList<>();
 
-		try (FileReader irakurriFitxategiBezeroak = new FileReader(FITXATEGIA_BIDEA);
+		try (StringReader irakurriFitxategiBezeroak = new StringReader(Irakurri.irakurriJAR(FITXATEGIA_BIDEA));
 				BufferedReader zatiHandietanIrakurri = new BufferedReader(irakurriFitxategiBezeroak)) {
 			String lerroa;
 			while ((lerroa = zatiHandietanIrakurri.readLine()) != null) {

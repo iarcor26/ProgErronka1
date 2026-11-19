@@ -8,10 +8,10 @@ import eredua.EskariLerroa;
 import ikuspegia.Kontsola;
 
 public class Faktura {
-	private final String FITXATEGIA_FAKTURAK = "./src/businesslogic/FAKTURAK.txt";
-	private final String FITXATEGIA_LERROAK = "./src/businesslogic/ESKARI_LERROAK.txt";
-	private final String FITXATEGIA_ESKARIAK = "./src/businesslogic/ESKARIAK.txt";
-	private final String FITXATEGIA_BEZEROA = "./src/businesslogic/bezeroak.txt";
+	private final String FITXATEGIA_FAKTURAK = "FAKTURAK.txt";
+	private final String FITXATEGIA_LERROAK = "businesslogic/ESKARI_LERROAK.txt";
+	private final String FITXATEGIA_ESKARIAK = "businesslogic/ESKARIAK.txt";
+	private final String FITXATEGIA_BEZEROA = "businesslogic/bezeroak.txt";
 	private String bilatuIdBezeroa;
 	private String bilatuIdEskaria;
 	private Boolean topatuDa;
@@ -74,7 +74,7 @@ public class Faktura {
 
 	private void inprimatuEskariak(String idBezeroa) {
 		Kontsola.inprimatu("\tBEZEROAREN ESKARIAK");
-		try (FileReader irakurriFitxategiEskariak = new FileReader(FITXATEGIA_ESKARIAK);
+		try (StringReader irakurriFitxategiEskariak = new StringReader(Irakurri.irakurriJAR(FITXATEGIA_ESKARIAK));
 				BufferedReader zatiHandiakIrakurri = new BufferedReader(irakurriFitxategiEskariak)) {
 
 			String lerroa;
@@ -100,7 +100,7 @@ public class Faktura {
 
 	private List<EskariLerroa> eskariLerroIrakurri() {
 		List<EskariLerroa> zerrenda = new ArrayList<>();
-		try (FileReader fr = new FileReader(FITXATEGIA_LERROAK); BufferedReader br = new BufferedReader(fr)) {
+		try (StringReader fr = new StringReader(Irakurri.irakurriJAR(FITXATEGIA_LERROAK)); BufferedReader br = new BufferedReader(fr)) {
 			String lerroa;
 			br.readLine();
 			while ((lerroa = br.readLine()) != null) {
@@ -119,7 +119,7 @@ public class Faktura {
 	private List<Bezeroak> bezeroakIrakurri() {
 		List<Bezeroak> zerrenda = new ArrayList<>();
 
-		try (FileReader irakurriFitxategiaBezeroak = new FileReader(FITXATEGIA_BEZEROA);
+		try (StringReader irakurriFitxategiaBezeroak = new StringReader(Irakurri.irakurriJAR(FITXATEGIA_BEZEROA));
 				BufferedReader zatiHandiakIrakurri = new BufferedReader(irakurriFitxategiaBezeroak)) {
 
 			String lerroa;

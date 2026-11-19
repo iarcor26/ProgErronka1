@@ -8,7 +8,7 @@ import ikuspegia.Kontsola;
 
 public class MenuFitxategiaFaktura {
 
-	private final String FITXATEGIAKO_BIDEA = "./src/businesslogic/FAKTURAK.txt";
+	private final String FITXATEGIAKO_BIDEA = "FAKTURAK.txt";
 
 	public void bilatuTeklatuz() {
 		inprimatu();
